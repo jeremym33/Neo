@@ -1,4 +1,6 @@
-using System;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Center = Microsoft.AppCenter;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,8 +18,12 @@ namespace AppCenterNeo
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            // Handle when your app starts
+            Center.AppCenter.Start("android=6ca7c8c5-eb42-4166-afa2-522c8a3235d9;" +
+                 "uwp={Your UWP App secret here};" +
+                 "ios={Your iOS App secret here}",
+                 typeof(Analytics), typeof(Crashes));
+        }
 
 		protected override void OnSleep ()
 		{
